@@ -39,6 +39,20 @@ let TasksService = class TasksService {
         task.status = status;
         return task;
     }
+    getTasksWithFilters(filterDto) {
+        const { status, search } = filterDto;
+        let tasks = this.getAllTasks();
+        if (status) {
+            console.log(tasks, status);
+            tasks = tasks.filter((task) => task.status === status);
+        }
+        if (search) {
+            console.log(search);
+            tasks = tasks.filter((task) => task.title.includes(search) ||
+                task.description.includes(search));
+        }
+        return tasks;
+    }
 };
 exports.TasksService = TasksService;
 exports.TasksService = TasksService = __decorate([

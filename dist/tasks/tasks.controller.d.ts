@@ -1,10 +1,11 @@
 import { TasksService } from './tasks.service';
 import { Task, TaskStatus } from './task.model';
 import { CreateTaskDto } from './dto/create-task.dto';
+import { GetTaskFilterDto } from './dto/get-tasks-filter.dto';
 export declare class TasksController {
     private tasksService;
     constructor(tasksService: TasksService);
-    getAllTasks(): Task[];
+    getTasks(filterDto: GetTaskFilterDto): Task[];
     getTaskById(id: string): Task;
     createTask(CreateTaskDto: CreateTaskDto): Task;
     deleteTask(id: string): void;
